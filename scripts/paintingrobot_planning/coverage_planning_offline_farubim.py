@@ -16,9 +16,9 @@ from robotic_functions.transfer import *
 from robotic_functions.aubo_kinematics import *
 from robotic_functions.Quaternion import *
 
-coverage_planner_path=rospy.get_param("/renov_up_level/coverage_planner_path")
-sys.path.append(coverage_planner_path)
-print("coverage_planner_path is",coverage_planner_path)
+# coverage_planner_path=rospy.get_param("/renov_up_level/coverage_planner_path")
+# sys.path.append(coverage_planner_path)
+# print("coverage_planner_path is",coverage_planner_path)
 
 class Renovation_BIM_Model_Opreating():
     def __init__(self,mat_path,parameterx,parametery,parameterz,interval):
@@ -85,6 +85,7 @@ class Renovation_BIM_Model_Opreating():
 
     def print_json(self,data):
         print(json.dumps(data, sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False))
+
     def array_to_dictlist(self,data):
         datadict={}
         for i in range(len(data)):
@@ -146,17 +147,19 @@ class Renovation_BIM_Model_Opreating():
         data = io.loadmat(self.mat_path)
         manipulatorbase_targetpose=data['renovation_cells_manipulatorbase_positions']
         manipulatorendeffector_targetpose=data['manipulator_endeffector_positions_onpath']
-        i=1
-        j=1
-        k=1
-        manipulatorbase_targetpose_onecell= manipulatorbase_targetpose[0][i][0][j][0][k]
-        print("manipulatorbase_targetpose_onecell is:",manipulatorbase_targetpose_onecell)
-        manipulatorendeffector_targetpose_onecell = manipulatorendeffector_targetpose[0][i][0][j][0][k]
-        print("manipulatorendeffector_targetpose_onecell is:",manipulatorendeffector_targetpose_onecell)
+        print("manipulatorbase_targetpose is:",manipulatorbase_targetpose[0][0][0][0][0][0])
+
+        # i=1
+        # j=1
+        # k=1
+        # manipulatorbase_targetpose_onecell= manipulatorbase_targetpose[0][i][0][j][0][k]
+        # print("manipulatorbase_targetpose_onecell is:",manipulatorbase_targetpose_onecell)
+        # manipulatorendeffector_targetpose_onecell = manipulatorendeffector_targetpose[0][i][0][j][0][k]
+        # print("manipulatorendeffector_targetpose_onecell is:",manipulatorendeffector_targetpose_onecell)
 
 
 def main():
-    mat_path="/home/zy/catkin_ws/src/paintingrobot/paintingrobot_underusing/painting_robot_demo/matlab/second_scan_data/second_scan_data2.mat"
+    mat_path="/home/zy/catkin_ws/src/polishingrobot_yhl/polishing_mobileplatform_planner/matlab/scan_data2.mat"
     parameterx=0.430725381079
     parametery=-0.00033063639818
     parameterz=0.028625
