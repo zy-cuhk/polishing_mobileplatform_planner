@@ -357,7 +357,7 @@ for i=1:1:size(renovation_cells_manipulatorbase_positions,2)
     end
 end
 
-save('second_scan_data/second_scan_data2.mat','manipulator_endeffector_positions_onpath','renovation_cells_manipulatorbase_positions','renovation_cells_waypioints_onwaypath');
+save('scan_data2.mat','manipulator_endeffector_positions_onpath','renovation_cells_manipulatorbase_positions','renovation_cells_waypioints_onwaypath');
 renovation_cells_waypath_visualization(renovation_cells_waypioints_onwaypath,renovation_cells_manipulatorbase_positions,renovation_plane_edge_cell,room_plane_edge_cell,manipulatorbase_plane_edge_cell);
 
 positions_num=0;
@@ -375,9 +375,5 @@ fprintf('the position number is: %6.4f\n',positions_num);
 
 %  end
 
-% [[-2.80062752e-09,  3.20510329e-09,  1.00000000e+00, 5.99999999e-01],
-% [ 9.59418094e-10, -1.00000000e+00,  3.20510329e-09, 2.50000003e-01],
-% [ 1.00000000e+00,  9.59418103e-10,  2.80062752e-09, -5.00000001e-01],
-% [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00,  1.00000000e+00]]
 
 
