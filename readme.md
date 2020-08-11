@@ -17,6 +17,11 @@ polishing_mobile_platform_planner
 4. visualizer: visualize the mobile platform base positions 
 
 
-Working logger in 20200116
-1. the scene software: 
+Working logger in 2020804
+1. visualize robot model
+2. visualie construction environment 
+
+working logger in 20200811
+1. visualize 
+
 

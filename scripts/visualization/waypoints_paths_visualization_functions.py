@@ -63,7 +63,7 @@ def targetpositions_visualization(waypoint, frame, num, scale, color):
     marker1.type = Marker.CUBE
     marker1.action = Marker.ADD
 
-    marker1.scale.x = scale[0]
+    marker1.scale.x = 2*scale[0]
     marker1.scale.y = scale[1]
     marker1.scale.z = scale[2]
     marker1.ns = 'targeposition'
@@ -77,9 +77,10 @@ def targetpositions_visualization(waypoint, frame, num, scale, color):
     marker1.pose.position.x = waypoint[0]
     marker1.pose.position.y = waypoint[1]
     marker1.pose.position.z = waypoint[2]
-    marker1.pose.orientation.w = waypoint[3]
-    marker1.pose.orientation.x = waypoint[4]
-    marker1.pose.orientation.y = waypoint[5]
-    marker1.pose.orientation.z = waypoint[6]
+    marker1.pose.orientation.x = waypoint[3]
+    marker1.pose.orientation.y = waypoint[4]
+    marker1.pose.orientation.z = waypoint[5]
+    marker1.pose.orientation.w = waypoint[6]
+
 
     return marker1, num

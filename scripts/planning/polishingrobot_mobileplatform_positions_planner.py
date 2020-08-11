@@ -19,11 +19,10 @@ from robotic_functions.Quaternion import *
 
 
 class Renovation_BIM_Model_Opreating():
-    def __init__(self,mat_path,parameterx,parametery,parameterz,interval):
-        self.parameterx=parameterx #0.430725381079
-        self.parametery=parametery #-0.00033063639818
-        self.parameterz=parameterz #0.028625
-        self.interval=interval #0.10
+    def __init__(self,mat_path,parameterx,parametery,parameterz):
+        self.parameterx=parameterx 
+        self.parametery=parametery 
+        self.parameterz=parameterz
         self.mat_path=mat_path
 
 
@@ -40,6 +39,10 @@ class Renovation_BIM_Model_Opreating():
 
 
     def get_mat_data_json1(self):
+        plan_num={}
+        mobile_way_point={}
+        mobile_way_point_data={}
+
         data = io.loadmat(self.mat_path)
         manipulatorbase_targetpose=data['renovation_cells_manipulatorbase_positions']
         for i in range(len(manipulatorbase_targetpose[0])):
@@ -50,8 +53,19 @@ class Renovation_BIM_Model_Opreating():
 
                 # mobileplatform_targetjoints is: tranx-trany-tranz-thetax-thetay-thetaz-w
                 print("mobileplatform_targetjoints is:",mobileplatform_targetjoints)
-        return 0
+                mobile_way_point_data.update({("mobile_data_num_"+str(j)):mobileplatform_targetjoints})
+            mobile_way_point.update({("moible_way_num_"+str(i)):mobile_way_point_data})
+
+            plan_num.update({("plane_num_"+str(i)):mobile_way_point})
+            mobile_way_point_data={}
+            mobile_way_point={}
+        
+        self.print_json(plan_num)
+        return plan_num
                 
+    def print_json(self,data):
+        print(json.dumps(data, sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False))
+
     def show_mat(self):
         data = io.loadmat(self.mat_path)
         manipulatorbase_targetpose=data['renovation_cells_manipulatorbase_positions']
@@ -63,13 +77,12 @@ class Renovation_BIM_Model_Opreating():
         print("q is:",q)
 
 def main():
-    mat_path="/home/zy/catkin_ws/src/polishingrobot_yhl/polishing_mobileplatform_planner/matlab/scan_data2.mat"
+    mat_path="/home/zy/catkin_ws/src/polishingrobot_ylz/polishingrobot_offlineplanner/matlab/scan_data2.mat"
     parameterx=0.2
     parametery=0.0
     parameterz=0.028625
-    interval=0.10
     data = io.loadmat(mat_path)
-    Paintrobot2 = Renovation_BIM_Model_Opreating(mat_path,parameterx,parametery,parameterz,interval)
+    Paintrobot2 = Renovation_BIM_Model_Opreating(mat_path,parameterx,parametery,parameterz)
     planning_source_dict=Paintrobot2.get_mat_data_json1()
     # Paintrobot2.show_mat()
     # Paintrobot2.quaternion_test()

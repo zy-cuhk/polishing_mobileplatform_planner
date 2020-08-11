@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(polishing_mobileplatform_planner)
+project(polishingrobot_offlineplanner)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
