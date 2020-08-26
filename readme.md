@@ -21,7 +21,5 @@ Working logger in 2020804
 1. visualize robot model
 2. visualie construction environment 
 
-working logger in 20200811
-1. visualize 
 
 
