@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>polishingrobot_offlineplanner</name>
+  <name>polishingrobot_mobileplatform_offlineplanner</name>
   <version>0.0.0</version>
-  <description>The polishingrobot_offlineplanner package</description>
+  <description>The polishingrobot_mobileplatform_offlineplanner package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
